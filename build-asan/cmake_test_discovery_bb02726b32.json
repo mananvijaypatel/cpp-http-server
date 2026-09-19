@@ -1,0 +1,58 @@
+{
+  "tests": 8,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "Trim",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "RemovesSurroundingWhitespace",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/util_test.cpp",
+          "line": 9
+        },
+        {
+          "name": "AllWhitespaceBecomesEmpty",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/util_test.cpp",
+          "line": 14
+        },
+        {
+          "name": "EmptyStaysEmpty",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/util_test.cpp",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "name": "Socket",
+      "tests": 5,
+      "testsuite": [
+        {
+          "name": "DefaultConstructedIsInvalid",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/socket_test.cpp",
+          "line": 29
+        },
+        {
+          "name": "DestructorClosesFd",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/socket_test.cpp",
+          "line": 34
+        },
+        {
+          "name": "MoveConstructorTransfersOwnership",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/socket_test.cpp",
+          "line": 46
+        },
+        {
+          "name": "MoveAssignmentClosesPreviousFd",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/socket_test.cpp",
+          "line": 58
+        },
+        {
+          "name": "ListenTcpOnEphemeralPort",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/socket_test.cpp",
+          "line": 74
+        }
+      ]
+    }
+  ]
+}

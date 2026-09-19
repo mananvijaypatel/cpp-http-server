@@ -1,0 +1,9 @@
+Trim.RemovesSurroundingWhitespace 2 0.00964472
+Trim.AllWhitespaceBecomesEmpty 2 0.00959105
+Trim.EmptyStaysEmpty 2 0.00990653
+Socket.DefaultConstructedIsInvalid 1 0.0193004
+Socket.DestructorClosesFd 1 0.019872
+Socket.MoveConstructorTransfersOwnership 1 0.020186
+Socket.MoveAssignmentClosesPreviousFd 1 0.019638
+Socket.ListenTcpOnEphemeralPort 1 0.0198058
+---

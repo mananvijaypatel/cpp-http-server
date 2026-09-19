@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -o CMakeFiles/core.dir/src/util.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/util.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/util.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core.dir/src/util.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -o CMakeFiles/core.dir/src/socket.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/socket.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/socket.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core.dir/src/socket.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/server.dir/src/main.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/main.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/main.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/server.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/util_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/util_test.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/util_test.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/util_test.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/socket_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/socket_test.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/socket_test.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/socket_test.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/include -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer -o _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer -o _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer -o _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer -o _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+}
+]

@@ -1,0 +1,219 @@
+Start testing: Sep 19 14:37 EDT
+----------------------------------------------------------
+1/8 Testing: Trim.RemovesSurroundingWhitespace
+1/8 Test: Trim.RemovesSurroundingWhitespace
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Trim.RemovesSurroundingWhitespace" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Trim.RemovesSurroundingWhitespace" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Trim.RemovesSurroundingWhitespace
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Trim
+[ RUN      ] Trim.RemovesSurroundingWhitespace
+[       OK ] Trim.RemovesSurroundingWhitespace (0 ms)
+[----------] 1 test from Trim (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Trim.RemovesSurroundingWhitespace" end time: Sep 19 14:37 EDT
+"Trim.RemovesSurroundingWhitespace" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: Trim.AllWhitespaceBecomesEmpty
+2/8 Test: Trim.AllWhitespaceBecomesEmpty
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Trim.AllWhitespaceBecomesEmpty" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Trim.AllWhitespaceBecomesEmpty" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Trim.AllWhitespaceBecomesEmpty
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Trim
+[ RUN      ] Trim.AllWhitespaceBecomesEmpty
+[       OK ] Trim.AllWhitespaceBecomesEmpty (0 ms)
+[----------] 1 test from Trim (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Trim.AllWhitespaceBecomesEmpty" end time: Sep 19 14:37 EDT
+"Trim.AllWhitespaceBecomesEmpty" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: Trim.EmptyStaysEmpty
+3/8 Test: Trim.EmptyStaysEmpty
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Trim.EmptyStaysEmpty" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Trim.EmptyStaysEmpty" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Trim.EmptyStaysEmpty
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Trim
+[ RUN      ] Trim.EmptyStaysEmpty
+[       OK ] Trim.EmptyStaysEmpty (0 ms)
+[----------] 1 test from Trim (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Trim.EmptyStaysEmpty" end time: Sep 19 14:37 EDT
+"Trim.EmptyStaysEmpty" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: Socket.DefaultConstructedIsInvalid
+4/8 Test: Socket.DefaultConstructedIsInvalid
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.DefaultConstructedIsInvalid" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Socket.DefaultConstructedIsInvalid" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Socket.DefaultConstructedIsInvalid
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Socket
+[ RUN      ] Socket.DefaultConstructedIsInvalid
+[       OK ] Socket.DefaultConstructedIsInvalid (0 ms)
+[----------] 1 test from Socket (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Socket.DefaultConstructedIsInvalid" end time: Sep 19 14:37 EDT
+"Socket.DefaultConstructedIsInvalid" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: Socket.DestructorClosesFd
+5/8 Test: Socket.DestructorClosesFd
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.DestructorClosesFd" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Socket.DestructorClosesFd" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Socket.DestructorClosesFd
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Socket
+[ RUN      ] Socket.DestructorClosesFd
+[       OK ] Socket.DestructorClosesFd (0 ms)
+[----------] 1 test from Socket (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Socket.DestructorClosesFd" end time: Sep 19 14:37 EDT
+"Socket.DestructorClosesFd" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: Socket.MoveConstructorTransfersOwnership
+6/8 Test: Socket.MoveConstructorTransfersOwnership
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.MoveConstructorTransfersOwnership" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Socket.MoveConstructorTransfersOwnership" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Socket.MoveConstructorTransfersOwnership
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Socket
+[ RUN      ] Socket.MoveConstructorTransfersOwnership
+[       OK ] Socket.MoveConstructorTransfersOwnership (0 ms)
+[----------] 1 test from Socket (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Socket.MoveConstructorTransfersOwnership" end time: Sep 19 14:37 EDT
+"Socket.MoveConstructorTransfersOwnership" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: Socket.MoveAssignmentClosesPreviousFd
+7/8 Test: Socket.MoveAssignmentClosesPreviousFd
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.MoveAssignmentClosesPreviousFd" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Socket.MoveAssignmentClosesPreviousFd" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Socket.MoveAssignmentClosesPreviousFd
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Socket
+[ RUN      ] Socket.MoveAssignmentClosesPreviousFd
+[       OK ] Socket.MoveAssignmentClosesPreviousFd (0 ms)
+[----------] 1 test from Socket (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Socket.MoveAssignmentClosesPreviousFd" end time: Sep 19 14:37 EDT
+"Socket.MoveAssignmentClosesPreviousFd" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: Socket.ListenTcpOnEphemeralPort
+8/8 Test: Socket.ListenTcpOnEphemeralPort
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.ListenTcpOnEphemeralPort" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"Socket.ListenTcpOnEphemeralPort" start time: Sep 19 14:37 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = Socket.ListenTcpOnEphemeralPort
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Socket
+[ RUN      ] Socket.ListenTcpOnEphemeralPort
+[       OK ] Socket.ListenTcpOnEphemeralPort (0 ms)
+[----------] 1 test from Socket (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"Socket.ListenTcpOnEphemeralPort" end time: Sep 19 14:37 EDT
+"Socket.ListenTcpOnEphemeralPort" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 19 14:37 EDT

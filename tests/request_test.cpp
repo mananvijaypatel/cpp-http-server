@@ -140,3 +140,30 @@ TEST(RequestParser, RejectsOversizedHeadEvenWithoutTerminator) {
     EXPECT_EQ(r.status, ParseStatus::Error);
     EXPECT_EQ(r.error_status, 431);
 }
+
+
+// ---------- Connection policy ----------
+
+TEST(RequestPolicy, Http11DefaultsToKeepAlive) {
+    auto r = parse_request_head("GET / HTTP/1.1\r\nHost: x\r\n\r\n");
+    ASSERT_EQ(r.status, ParseStatus::Complete);
+    EXPECT_TRUE(http::wants_keep_alive(r.request));
+}
+
+TEST(RequestPolicy, ConnectionCloseIsCaseInsensitive) {
+    auto r = parse_request_head("GET / HTTP/1.1\r\nHost: x\r\nConnection: CLOSE\r\n\r\n");
+    ASSERT_EQ(r.status, ParseStatus::Complete);
+    EXPECT_FALSE(http::wants_keep_alive(r.request));
+}
+
+TEST(RequestPolicy, Http10DefaultsToClose) {
+    auto r = parse_request_head("GET / HTTP/1.0\r\n\r\n");
+    ASSERT_EQ(r.status, ParseStatus::Complete);
+    EXPECT_FALSE(http::wants_keep_alive(r.request));
+}
+
+TEST(RequestPolicy, DetectsBody) {
+    auto r = parse_request_head("POST / HTTP/1.1\r\nHost: x\r\nContent-Length: 3\r\n\r\n");
+    ASSERT_EQ(r.status, ParseStatus::Complete);
+    EXPECT_TRUE(http::has_body(r.request));
+}

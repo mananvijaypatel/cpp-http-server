@@ -43,4 +43,11 @@ namespace http {
     // Parses the request line and headers from the start of 'data'.
     ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes = kMaxHeadBytes);
 
+    // Should the connection stay open after this request?
+    // HTTP/1.1 defaults to keep-alive; HTTP/1.0 defaults to close
+    bool wants_keep_alive(const Request& req);
+
+    // Does this request claim to carry a body?
+    bool has_body(const Request& req);
+
 } // namespace http

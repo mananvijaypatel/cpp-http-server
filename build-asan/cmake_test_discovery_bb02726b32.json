@@ -1,5 +1,5 @@
 {
-  "tests": 29,
+  "tests": 43,
   "name": "AllTests",
   "testsuites": [
     {
@@ -168,6 +168,94 @@
           "name": "RejectsOversizedHeadEvenWithoutTerminator",
           "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
           "line": 136
+        }
+      ]
+    },
+    {
+      "name": "RequestPolicy",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "Http11DefaultsToKeepAlive",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 147
+        },
+        {
+          "name": "ConnectionCloseIsCaseInsensitive",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 153
+        },
+        {
+          "name": "Http10DefaultsToClose",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 159
+        },
+        {
+          "name": "DetectsBody",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 165
+        }
+      ]
+    },
+    {
+      "name": "Response",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "SerializesStatusLineHeadersAndBody",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/response_test.cpp",
+          "line": 8
+        },
+        {
+          "name": "HeadOmitsBodyButKeepsContentLength",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/response_test.cpp",
+          "line": 20
+        },
+        {
+          "name": "CloseConnectionHeader",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/response_test.cpp",
+          "line": 28
+        },
+        {
+          "name": "AddHeaderRejectsNewlines",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/response_test.cpp",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "name": "Router",
+      "tests": 6,
+      "testsuite": [
+        {
+          "name": "IndexReturnsHtml",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/router_test.cpp",
+          "line": 31
+        },
+        {
+          "name": "HealthIgnoresQueryString",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/router_test.cpp",
+          "line": 38
+        },
+        {
+          "name": "HeadIsAllowed",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/router_test.cpp",
+          "line": 44
+        },
+        {
+          "name": "UnknownPathIs404",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/router_test.cpp",
+          "line": 48
+        },
+        {
+          "name": "PostIs405WithAllowHeader",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/router_test.cpp",
+          "line": 52
+        },
+        {
+          "name": "HeadersEndpointIsPlainTextWithNosniff",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/router_test.cpp",
+          "line": 58
         }
       ]
     }

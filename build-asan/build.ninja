@@ -76,6 +76,22 @@ build CMakeFiles/core.dir/src/request.cpp.o: CXX_COMPILER__core_unscanned_ /home
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/core.dir
 
+build CMakeFiles/core.dir/src/response.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/response.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles/core.dir/src/response.cpp.o.d
+  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
+  OBJECT_DIR = CMakeFiles/core.dir
+  OBJECT_FILE_DIR = CMakeFiles/core.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/core.dir
+
+build CMakeFiles/core.dir/src/router.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/router.cpp || cmake_object_order_depends_target_core
+  DEP_FILE = CMakeFiles/core.dir/src/router.cpp.o.d
+  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
+  OBJECT_DIR = CMakeFiles/core.dir
+  OBJECT_FILE_DIR = CMakeFiles/core.dir/src
+  TARGET_SUPPORT_DIR = CMakeFiles/core.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target core
@@ -84,7 +100,7 @@ build CMakeFiles/core.dir/src/request.cpp.o: CXX_COMPILER__core_unscanned_ /home
 #############################################
 # Link the static library libcore.a
 
-build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_ CMakeFiles/core.dir/src/util.cpp.o CMakeFiles/core.dir/src/socket.cpp.o CMakeFiles/core.dir/src/thread_pool.cpp.o CMakeFiles/core.dir/src/request.cpp.o
+build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_ CMakeFiles/core.dir/src/util.cpp.o CMakeFiles/core.dir/src/socket.cpp.o CMakeFiles/core.dir/src/thread_pool.cpp.o CMakeFiles/core.dir/src/request.cpp.o CMakeFiles/core.dir/src/response.cpp.o CMakeFiles/core.dir/src/router.cpp.o
   OBJECT_DIR = CMakeFiles/core.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -169,6 +185,22 @@ build CMakeFiles/core_tests.dir/tests/request_test.cpp.o: CXX_COMPILER__core_tes
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
 
+build CMakeFiles/core_tests.dir/tests/response_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/response_test.cpp || cmake_object_order_depends_target_core_tests
+  DEP_FILE = CMakeFiles/core_tests.dir/tests/response_test.cpp.o.d
+  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles/core_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
+  TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
+
+build CMakeFiles/core_tests.dir/tests/router_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/router_test.cpp || cmake_object_order_depends_target_core_tests
+  DEP_FILE = CMakeFiles/core_tests.dir/tests/router_test.cpp.o.d
+  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles/core_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
+  TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target core_tests
@@ -177,7 +209,7 @@ build CMakeFiles/core_tests.dir/tests/request_test.cpp.o: CXX_COMPILER__core_tes
 #############################################
 # Link the executable core_tests
 
-build core_tests core_tests[1]_tests.cmake | ${cmake_ninja_workdir}core_tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__core_tests_ CMakeFiles/core_tests.dir/tests/util_test.cpp.o CMakeFiles/core_tests.dir/tests/socket_test.cpp.o CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o CMakeFiles/core_tests.dir/tests/request_test.cpp.o | libcore.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcore.a
+build core_tests core_tests[1]_tests.cmake | ${cmake_ninja_workdir}core_tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__core_tests_ CMakeFiles/core_tests.dir/tests/util_test.cpp.o CMakeFiles/core_tests.dir/tests/socket_test.cpp.o CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o CMakeFiles/core_tests.dir/tests/request_test.cpp.o CMakeFiles/core_tests.dir/tests/response_test.cpp.o CMakeFiles/core_tests.dir/tests/router_test.cpp.o | libcore.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcore.a
   DEP_FILE = CMakeFiles/core_tests.dir/link.d
   LINK_FLAGS = -fsanitize=address,undefined -Wl,--dependency-file=CMakeFiles/core_tests.dir/link.d
   LINK_LIBRARIES = libcore.a  lib/libgtest_main.a  lib/libgtest.a

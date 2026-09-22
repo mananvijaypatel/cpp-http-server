@@ -190,4 +190,20 @@ ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes
     return result;
 }
 
+bool wants_keep_alive(const Request& req) {
+    auto conn = req.header("Connection");
+    if (req.version == "HTTP/1.1") {
+        return !(conn && iequals(*conn, "close"));
+    }
+    return conn && iequals(*conn, "keep-alive");
+}
+
+bool has_body(const Request& req) {
+    if (req.header("Transfer-Encoding")) {
+        return true;
+    }
+    auto length = req.header("Content-Length");
+    return length && *length != "0";
+}
+
 } // namespace http

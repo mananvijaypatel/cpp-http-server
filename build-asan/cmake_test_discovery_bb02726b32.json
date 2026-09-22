@@ -1,5 +1,5 @@
 {
-  "tests": 8,
+  "tests": 29,
   "name": "AllTests",
   "testsuites": [
     {
@@ -51,6 +51,123 @@
           "name": "ListenTcpOnEphemeralPort",
           "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/socket_test.cpp",
           "line": 74
+        }
+      ]
+    },
+    {
+      "name": "ThreadPool",
+      "tests": 4,
+      "testsuite": [
+        {
+          "name": "RunsAllSubmittedTasks",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/thread_pool_test.cpp",
+          "line": 12
+        },
+        {
+          "name": "UsesMultipleThreads",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/thread_pool_test.cpp",
+          "line": 25
+        },
+        {
+          "name": "TasksThatThrowDoNotKillWorkers",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/thread_pool_test.cpp",
+          "line": 44
+        },
+        {
+          "name": "SubmitSucceedsWhileRunning",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/thread_pool_test.cpp",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "name": "RequestParser",
+      "tests": 17,
+      "testsuite": [
+        {
+          "name": "ParseStatus",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 13
+        },
+        {
+          "name": "HeaderLookupIsCaseInsensitive",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 25
+        },
+        {
+          "name": "MissingHeaderReturnsNullopt",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 32
+        },
+        {
+          "name": "TrimsHeaderValueWhitespace",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 38
+        },
+        {
+          "name": "CombinesRepeatedHeaders",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 44
+        },
+        {
+          "name": "AllowsMissingHostInHttp10",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 51
+        },
+        {
+          "name": "IncompleteUntilBlankLine",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 59
+        },
+        {
+          "name": "CompletesWhenDataArrivesInPieces",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 64
+        },
+        {
+          "name": "ConsumedStopsAtEndOfFirstRequest",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 75
+        },
+        {
+          "name": "RejectsMissingHostInHttp11",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 94
+        },
+        {
+          "name": "RejectsMalformedRequestLine",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 100
+        },
+        {
+          "name": "RejectsUnsupportedVersion",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 106
+        },
+        {
+          "name": "RejectsHeaderWithoutColon",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 112
+        },
+        {
+          "name": "RejectsSpaceBeforeColon",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 117
+        },
+        {
+          "name": "RejectsDuplicateContentLength",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 122
+        },
+        {
+          "name": "RejectsControlCharacterInValue",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 129
+        },
+        {
+          "name": "RejectsOversizedHeadEvenWithoutTerminator",
+          "file": "\/home\/ectf\/Desktop\/projects\/cpp-http-server\/tests\/request_test.cpp",
+          "line": 136
         }
       ]
     }

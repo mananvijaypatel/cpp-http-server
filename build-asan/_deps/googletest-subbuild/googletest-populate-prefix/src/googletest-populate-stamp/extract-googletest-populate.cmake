@@ -29,7 +29,7 @@ file(MAKE_DIRECTORY "${ut_dir}")
 # Extract it:
 #
 message(VERBOSE "extracting... [tar xf]")
-execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf ${filename} 
+execute_process(COMMAND ${CMAKE_COMMAND} -E tar xf ${filename} --touch
   WORKING_DIRECTORY ${ut_dir}
   RESULT_VARIABLE rv
 )

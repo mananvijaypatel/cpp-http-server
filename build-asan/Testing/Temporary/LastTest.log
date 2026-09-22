@@ -1,10 +1,10 @@
-Start testing: Sep 19 14:37 EDT
+Start testing: Sep 22 12:07 EDT
 ----------------------------------------------------------
-1/8 Testing: Trim.RemovesSurroundingWhitespace
-1/8 Test: Trim.RemovesSurroundingWhitespace
+1/29 Testing: Trim.RemovesSurroundingWhitespace
+1/29 Test: Trim.RemovesSurroundingWhitespace
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Trim.RemovesSurroundingWhitespace" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Trim.RemovesSurroundingWhitespace" start time: Sep 19 14:37 EDT
+"Trim.RemovesSurroundingWhitespace" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -23,15 +23,15 @@ Note: Google Test filter = Trim.RemovesSurroundingWhitespace
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Trim.RemovesSurroundingWhitespace" end time: Sep 19 14:37 EDT
+"Trim.RemovesSurroundingWhitespace" end time: Sep 22 12:07 EDT
 "Trim.RemovesSurroundingWhitespace" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/8 Testing: Trim.AllWhitespaceBecomesEmpty
-2/8 Test: Trim.AllWhitespaceBecomesEmpty
+2/29 Testing: Trim.AllWhitespaceBecomesEmpty
+2/29 Test: Trim.AllWhitespaceBecomesEmpty
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Trim.AllWhitespaceBecomesEmpty" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Trim.AllWhitespaceBecomesEmpty" start time: Sep 19 14:37 EDT
+"Trim.AllWhitespaceBecomesEmpty" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -50,15 +50,15 @@ Note: Google Test filter = Trim.AllWhitespaceBecomesEmpty
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Trim.AllWhitespaceBecomesEmpty" end time: Sep 19 14:37 EDT
+"Trim.AllWhitespaceBecomesEmpty" end time: Sep 22 12:07 EDT
 "Trim.AllWhitespaceBecomesEmpty" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/8 Testing: Trim.EmptyStaysEmpty
-3/8 Test: Trim.EmptyStaysEmpty
+3/29 Testing: Trim.EmptyStaysEmpty
+3/29 Test: Trim.EmptyStaysEmpty
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Trim.EmptyStaysEmpty" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Trim.EmptyStaysEmpty" start time: Sep 19 14:37 EDT
+"Trim.EmptyStaysEmpty" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -77,15 +77,15 @@ Note: Google Test filter = Trim.EmptyStaysEmpty
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Trim.EmptyStaysEmpty" end time: Sep 19 14:37 EDT
+"Trim.EmptyStaysEmpty" end time: Sep 22 12:07 EDT
 "Trim.EmptyStaysEmpty" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/8 Testing: Socket.DefaultConstructedIsInvalid
-4/8 Test: Socket.DefaultConstructedIsInvalid
+4/29 Testing: Socket.DefaultConstructedIsInvalid
+4/29 Test: Socket.DefaultConstructedIsInvalid
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.DefaultConstructedIsInvalid" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Socket.DefaultConstructedIsInvalid" start time: Sep 19 14:37 EDT
+"Socket.DefaultConstructedIsInvalid" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -104,15 +104,15 @@ Note: Google Test filter = Socket.DefaultConstructedIsInvalid
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Socket.DefaultConstructedIsInvalid" end time: Sep 19 14:37 EDT
+"Socket.DefaultConstructedIsInvalid" end time: Sep 22 12:07 EDT
 "Socket.DefaultConstructedIsInvalid" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/8 Testing: Socket.DestructorClosesFd
-5/8 Test: Socket.DestructorClosesFd
+5/29 Testing: Socket.DestructorClosesFd
+5/29 Test: Socket.DestructorClosesFd
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.DestructorClosesFd" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Socket.DestructorClosesFd" start time: Sep 19 14:37 EDT
+"Socket.DestructorClosesFd" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -131,15 +131,15 @@ Note: Google Test filter = Socket.DestructorClosesFd
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Socket.DestructorClosesFd" end time: Sep 19 14:37 EDT
+"Socket.DestructorClosesFd" end time: Sep 22 12:07 EDT
 "Socket.DestructorClosesFd" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-6/8 Testing: Socket.MoveConstructorTransfersOwnership
-6/8 Test: Socket.MoveConstructorTransfersOwnership
+6/29 Testing: Socket.MoveConstructorTransfersOwnership
+6/29 Test: Socket.MoveConstructorTransfersOwnership
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.MoveConstructorTransfersOwnership" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Socket.MoveConstructorTransfersOwnership" start time: Sep 19 14:37 EDT
+"Socket.MoveConstructorTransfersOwnership" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -158,15 +158,15 @@ Note: Google Test filter = Socket.MoveConstructorTransfersOwnership
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Socket.MoveConstructorTransfersOwnership" end time: Sep 19 14:37 EDT
+"Socket.MoveConstructorTransfersOwnership" end time: Sep 22 12:07 EDT
 "Socket.MoveConstructorTransfersOwnership" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-7/8 Testing: Socket.MoveAssignmentClosesPreviousFd
-7/8 Test: Socket.MoveAssignmentClosesPreviousFd
+7/29 Testing: Socket.MoveAssignmentClosesPreviousFd
+7/29 Test: Socket.MoveAssignmentClosesPreviousFd
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.MoveAssignmentClosesPreviousFd" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Socket.MoveAssignmentClosesPreviousFd" start time: Sep 19 14:37 EDT
+"Socket.MoveAssignmentClosesPreviousFd" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -185,15 +185,15 @@ Note: Google Test filter = Socket.MoveAssignmentClosesPreviousFd
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Socket.MoveAssignmentClosesPreviousFd" end time: Sep 19 14:37 EDT
+"Socket.MoveAssignmentClosesPreviousFd" end time: Sep 22 12:07 EDT
 "Socket.MoveAssignmentClosesPreviousFd" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-8/8 Testing: Socket.ListenTcpOnEphemeralPort
-8/8 Test: Socket.ListenTcpOnEphemeralPort
+8/29 Testing: Socket.ListenTcpOnEphemeralPort
+8/29 Test: Socket.ListenTcpOnEphemeralPort
 Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=Socket.ListenTcpOnEphemeralPort" "--gtest_also_run_disabled_tests"
 Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
-"Socket.ListenTcpOnEphemeralPort" start time: Sep 19 14:37 EDT
+"Socket.ListenTcpOnEphemeralPort" start time: Sep 22 12:07 EDT
 Output:
 ----------------------------------------------------------
 Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -212,8 +212,580 @@ Note: Google Test filter = Socket.ListenTcpOnEphemeralPort
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"Socket.ListenTcpOnEphemeralPort" end time: Sep 19 14:37 EDT
+"Socket.ListenTcpOnEphemeralPort" end time: Sep 22 12:07 EDT
 "Socket.ListenTcpOnEphemeralPort" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 19 14:37 EDT
+9/29 Testing: ThreadPool.RunsAllSubmittedTasks
+9/29 Test: ThreadPool.RunsAllSubmittedTasks
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=ThreadPool.RunsAllSubmittedTasks" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"ThreadPool.RunsAllSubmittedTasks" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ThreadPool.RunsAllSubmittedTasks
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ThreadPool
+[ RUN      ] ThreadPool.RunsAllSubmittedTasks
+[       OK ] ThreadPool.RunsAllSubmittedTasks (4 ms)
+[----------] 1 test from ThreadPool (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (4 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"ThreadPool.RunsAllSubmittedTasks" end time: Sep 22 12:07 EDT
+"ThreadPool.RunsAllSubmittedTasks" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/29 Testing: ThreadPool.UsesMultipleThreads
+10/29 Test: ThreadPool.UsesMultipleThreads
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=ThreadPool.UsesMultipleThreads" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"ThreadPool.UsesMultipleThreads" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ThreadPool.UsesMultipleThreads
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ThreadPool
+[ RUN      ] ThreadPool.UsesMultipleThreads
+[       OK ] ThreadPool.UsesMultipleThreads (68 ms)
+[----------] 1 test from ThreadPool (68 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (68 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"ThreadPool.UsesMultipleThreads" end time: Sep 22 12:07 EDT
+"ThreadPool.UsesMultipleThreads" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/29 Testing: ThreadPool.TasksThatThrowDoNotKillWorkers
+11/29 Test: ThreadPool.TasksThatThrowDoNotKillWorkers
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=ThreadPool.TasksThatThrowDoNotKillWorkers" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"ThreadPool.TasksThatThrowDoNotKillWorkers" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ThreadPool.TasksThatThrowDoNotKillWorkers
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ThreadPool
+[ RUN      ] ThreadPool.TasksThatThrowDoNotKillWorkers
+thread pool task failed: boom
+thread pool task failed: boom
+thread pool task failed: boom
+thread pool task failed: boom
+thread pool task failed: boom
+[       OK ] ThreadPool.TasksThatThrowDoNotKillWorkers (0 ms)
+[----------] 1 test from ThreadPool (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"ThreadPool.TasksThatThrowDoNotKillWorkers" end time: Sep 22 12:07 EDT
+"ThreadPool.TasksThatThrowDoNotKillWorkers" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/29 Testing: ThreadPool.SubmitSucceedsWhileRunning
+12/29 Test: ThreadPool.SubmitSucceedsWhileRunning
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=ThreadPool.SubmitSucceedsWhileRunning" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"ThreadPool.SubmitSucceedsWhileRunning" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ThreadPool.SubmitSucceedsWhileRunning
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ThreadPool
+[ RUN      ] ThreadPool.SubmitSucceedsWhileRunning
+[       OK ] ThreadPool.SubmitSucceedsWhileRunning (0 ms)
+[----------] 1 test from ThreadPool (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"ThreadPool.SubmitSucceedsWhileRunning" end time: Sep 22 12:07 EDT
+"ThreadPool.SubmitSucceedsWhileRunning" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/29 Testing: RequestParser.ParseStatus
+13/29 Test: RequestParser.ParseStatus
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.ParseStatus" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.ParseStatus" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.ParseStatus
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.ParseStatus
+[       OK ] RequestParser.ParseStatus (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.ParseStatus" end time: Sep 22 12:07 EDT
+"RequestParser.ParseStatus" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/29 Testing: RequestParser.HeaderLookupIsCaseInsensitive
+14/29 Test: RequestParser.HeaderLookupIsCaseInsensitive
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.HeaderLookupIsCaseInsensitive" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.HeaderLookupIsCaseInsensitive" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.HeaderLookupIsCaseInsensitive
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.HeaderLookupIsCaseInsensitive
+[       OK ] RequestParser.HeaderLookupIsCaseInsensitive (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.HeaderLookupIsCaseInsensitive" end time: Sep 22 12:07 EDT
+"RequestParser.HeaderLookupIsCaseInsensitive" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/29 Testing: RequestParser.MissingHeaderReturnsNullopt
+15/29 Test: RequestParser.MissingHeaderReturnsNullopt
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.MissingHeaderReturnsNullopt" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.MissingHeaderReturnsNullopt" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.MissingHeaderReturnsNullopt
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.MissingHeaderReturnsNullopt
+[       OK ] RequestParser.MissingHeaderReturnsNullopt (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.MissingHeaderReturnsNullopt" end time: Sep 22 12:07 EDT
+"RequestParser.MissingHeaderReturnsNullopt" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/29 Testing: RequestParser.TrimsHeaderValueWhitespace
+16/29 Test: RequestParser.TrimsHeaderValueWhitespace
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.TrimsHeaderValueWhitespace" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.TrimsHeaderValueWhitespace" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.TrimsHeaderValueWhitespace
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.TrimsHeaderValueWhitespace
+[       OK ] RequestParser.TrimsHeaderValueWhitespace (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.TrimsHeaderValueWhitespace" end time: Sep 22 12:07 EDT
+"RequestParser.TrimsHeaderValueWhitespace" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/29 Testing: RequestParser.CombinesRepeatedHeaders
+17/29 Test: RequestParser.CombinesRepeatedHeaders
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.CombinesRepeatedHeaders" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.CombinesRepeatedHeaders" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.CombinesRepeatedHeaders
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.CombinesRepeatedHeaders
+[       OK ] RequestParser.CombinesRepeatedHeaders (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.CombinesRepeatedHeaders" end time: Sep 22 12:07 EDT
+"RequestParser.CombinesRepeatedHeaders" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/29 Testing: RequestParser.AllowsMissingHostInHttp10
+18/29 Test: RequestParser.AllowsMissingHostInHttp10
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.AllowsMissingHostInHttp10" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.AllowsMissingHostInHttp10" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.AllowsMissingHostInHttp10
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.AllowsMissingHostInHttp10
+[       OK ] RequestParser.AllowsMissingHostInHttp10 (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.AllowsMissingHostInHttp10" end time: Sep 22 12:07 EDT
+"RequestParser.AllowsMissingHostInHttp10" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/29 Testing: RequestParser.IncompleteUntilBlankLine
+19/29 Test: RequestParser.IncompleteUntilBlankLine
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.IncompleteUntilBlankLine" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.IncompleteUntilBlankLine" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.IncompleteUntilBlankLine
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.IncompleteUntilBlankLine
+[       OK ] RequestParser.IncompleteUntilBlankLine (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.IncompleteUntilBlankLine" end time: Sep 22 12:07 EDT
+"RequestParser.IncompleteUntilBlankLine" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/29 Testing: RequestParser.CompletesWhenDataArrivesInPieces
+20/29 Test: RequestParser.CompletesWhenDataArrivesInPieces
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.CompletesWhenDataArrivesInPieces" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.CompletesWhenDataArrivesInPieces" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.CompletesWhenDataArrivesInPieces
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.CompletesWhenDataArrivesInPieces
+[       OK ] RequestParser.CompletesWhenDataArrivesInPieces (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.CompletesWhenDataArrivesInPieces" end time: Sep 22 12:07 EDT
+"RequestParser.CompletesWhenDataArrivesInPieces" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/29 Testing: RequestParser.ConsumedStopsAtEndOfFirstRequest
+21/29 Test: RequestParser.ConsumedStopsAtEndOfFirstRequest
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.ConsumedStopsAtEndOfFirstRequest" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.ConsumedStopsAtEndOfFirstRequest" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.ConsumedStopsAtEndOfFirstRequest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.ConsumedStopsAtEndOfFirstRequest
+[       OK ] RequestParser.ConsumedStopsAtEndOfFirstRequest (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.ConsumedStopsAtEndOfFirstRequest" end time: Sep 22 12:07 EDT
+"RequestParser.ConsumedStopsAtEndOfFirstRequest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/29 Testing: RequestParser.RejectsMissingHostInHttp11
+22/29 Test: RequestParser.RejectsMissingHostInHttp11
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsMissingHostInHttp11" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsMissingHostInHttp11" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsMissingHostInHttp11
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsMissingHostInHttp11
+[       OK ] RequestParser.RejectsMissingHostInHttp11 (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsMissingHostInHttp11" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsMissingHostInHttp11" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/29 Testing: RequestParser.RejectsMalformedRequestLine
+23/29 Test: RequestParser.RejectsMalformedRequestLine
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsMalformedRequestLine" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsMalformedRequestLine" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsMalformedRequestLine
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsMalformedRequestLine
+[       OK ] RequestParser.RejectsMalformedRequestLine (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsMalformedRequestLine" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsMalformedRequestLine" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/29 Testing: RequestParser.RejectsUnsupportedVersion
+24/29 Test: RequestParser.RejectsUnsupportedVersion
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsUnsupportedVersion" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsUnsupportedVersion" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsUnsupportedVersion
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsUnsupportedVersion
+[       OK ] RequestParser.RejectsUnsupportedVersion (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsUnsupportedVersion" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsUnsupportedVersion" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/29 Testing: RequestParser.RejectsHeaderWithoutColon
+25/29 Test: RequestParser.RejectsHeaderWithoutColon
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsHeaderWithoutColon" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsHeaderWithoutColon" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsHeaderWithoutColon
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsHeaderWithoutColon
+[       OK ] RequestParser.RejectsHeaderWithoutColon (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsHeaderWithoutColon" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsHeaderWithoutColon" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/29 Testing: RequestParser.RejectsSpaceBeforeColon
+26/29 Test: RequestParser.RejectsSpaceBeforeColon
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsSpaceBeforeColon" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsSpaceBeforeColon" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsSpaceBeforeColon
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsSpaceBeforeColon
+[       OK ] RequestParser.RejectsSpaceBeforeColon (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsSpaceBeforeColon" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsSpaceBeforeColon" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/29 Testing: RequestParser.RejectsDuplicateContentLength
+27/29 Test: RequestParser.RejectsDuplicateContentLength
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsDuplicateContentLength" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsDuplicateContentLength" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsDuplicateContentLength
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsDuplicateContentLength
+[       OK ] RequestParser.RejectsDuplicateContentLength (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsDuplicateContentLength" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsDuplicateContentLength" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/29 Testing: RequestParser.RejectsControlCharacterInValue
+28/29 Test: RequestParser.RejectsControlCharacterInValue
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsControlCharacterInValue" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsControlCharacterInValue" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsControlCharacterInValue
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsControlCharacterInValue
+[       OK ] RequestParser.RejectsControlCharacterInValue (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsControlCharacterInValue" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsControlCharacterInValue" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/29 Testing: RequestParser.RejectsOversizedHeadEvenWithoutTerminator
+29/29 Test: RequestParser.RejectsOversizedHeadEvenWithoutTerminator
+Command: "/home/ectf/Desktop/projects/cpp-http-server/build-asan/core_tests" "--gtest_filter=RequestParser.RejectsOversizedHeadEvenWithoutTerminator" "--gtest_also_run_disabled_tests"
+Directory: /home/ectf/Desktop/projects/cpp-http-server/build-asan
+"RequestParser.RejectsOversizedHeadEvenWithoutTerminator" start time: Sep 22 12:07 EDT
+Output:
+----------------------------------------------------------
+Running main() from /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RequestParser.RejectsOversizedHeadEvenWithoutTerminator
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RequestParser
+[ RUN      ] RequestParser.RejectsOversizedHeadEvenWithoutTerminator
+[       OK ] RequestParser.RejectsOversizedHeadEvenWithoutTerminator (0 ms)
+[----------] 1 test from RequestParser (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"RequestParser.RejectsOversizedHeadEvenWithoutTerminator" end time: Sep 22 12:07 EDT
+"RequestParser.RejectsOversizedHeadEvenWithoutTerminator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 22 12:07 EDT

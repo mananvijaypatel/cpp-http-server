@@ -27,7 +27,14 @@ endif()
 find_package(Threads REQUIRED)
 
 # Core library: all real logic lives here so tests can use it
-add_library(core src/util.cpp src/socket.cpp src/thread_pool.cpp)
+add_library(core
+src/util.cpp 
+src/socket.cpp 
+src/thread_pool.cpp 
+src/request.cpp 
+src/response.cpp 
+src/router.cpp
+)
 target_include_directories(core PUBLIC include)
 target_compile_options(core PRIVATE -Wall -Wextra -Wpedantic)
 
@@ -42,7 +49,14 @@ FetchContent_Declare(googletest
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_executable(core_tests tests/util_test.cpp tests/socket_test.cpp)
+add_executable(core_tests 
+tests/util_test.cpp 
+tests/socket_test.cpp 
+tests/thread_pool_test.cpp 
+tests/request_test.cpp
+tests/response_test.cpp
+tests/router_test.cpp
+)
 target_link_libraries(core_tests PRIVATE core GTest::gtest_main)
 include(GoogleTest)
 gtest_discover_tests(core_tests)

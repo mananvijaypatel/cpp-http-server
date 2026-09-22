@@ -2,6 +2,8 @@
 #include <cstdint>
 #include <string_view>
 
+#include <chrono>
+
 
 // Why this design:
 
@@ -42,6 +44,10 @@ namespace net {
     // Sends every byte of data, looping over partial sends.
     // Throws std::system_error on failure
     void send_all(const Socket& s, std::string_view data);
+
+    // new declaration
+    // make recv() fail with EAGAIN if no data arrives within `timeout`.
+    void set_recv_timeout(const Socket& s, std::chrono::milliseconds timeout);
 
 } //namespace net
 

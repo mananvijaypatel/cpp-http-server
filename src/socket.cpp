@@ -9,6 +9,8 @@
 #include <sys/types.h>      // ssize_t
 #include <unistd.h>         // close
 
+#include <sys/time.h>       // for timeval 
+
 namespace net {
 
     Socket::Socket(int fd) noexcept : fd_(fd) {}
@@ -89,6 +91,17 @@ namespace net {
 
             ptr += n;                                   // skip past what was sent
             remaining -= static_cast<std::size_t>(n);   // fewer bytes left
+        }
+    }
+
+
+    void set_recv_timeout(const Socket& s, std::chrono::milliseconds timeout) {
+        timeval tv{};
+        tv.tv_sec = static_cast<time_t>(timeout.count() / 1000);
+        tv.tv_usec = static_cast<suseconds_t>((timeout.count() % 1000) * 1000);
+
+        if (::setsockopt(s.fd(), SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0) {
+            throw std::system_error(errno, std::generic_category(), "setsockopt(SO_RCVTIME)");
         }
     }
 

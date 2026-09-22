@@ -13,6 +13,30 @@
 },
 {
   "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -o CMakeFiles/core.dir/src/thread_pool.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/thread_pool.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/thread_pool.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core.dir/src/thread_pool.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -o CMakeFiles/core.dir/src/request.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/request.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/request.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core.dir/src/request.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -o CMakeFiles/core.dir/src/response.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/response.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/response.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core.dir/src/response.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic -o CMakeFiles/core.dir/src/router.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/router.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/src/router.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core.dir/src/router.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
   "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/server.dir/src/main.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/src/main.cpp",
   "file": "/home/ectf/Desktop/projects/cpp-http-server/src/main.cpp",
   "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/server.dir/src/main.cpp.o"
@@ -28,6 +52,30 @@
   "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/socket_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/socket_test.cpp",
   "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/socket_test.cpp",
   "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/socket_test.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/thread_pool_test.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/thread_pool_test.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/request_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/request_test.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/request_test.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/request_test.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/response_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/response_test.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/response_test.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/response_test.cpp.o"
+},
+{
+  "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",
+  "command": "/usr/bin/c++ -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/core_tests.dir/tests/router_test.cpp.o -c /home/ectf/Desktop/projects/cpp-http-server/tests/router_test.cpp",
+  "file": "/home/ectf/Desktop/projects/cpp-http-server/tests/router_test.cpp",
+  "output": "/home/ectf/Desktop/projects/cpp-http-server/build-asan/CMakeFiles/core_tests.dir/tests/router_test.cpp.o"
 },
 {
   "directory": "/home/ectf/Desktop/projects/cpp-http-server/build-asan",

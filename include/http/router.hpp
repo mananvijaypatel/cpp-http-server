@@ -5,7 +5,7 @@
 
 namespace http {
 
-    // Maps a parsed request to a response. Pure function: no I/O, easy to test.
-    Response route(const Request& req);
+// Maps a parsed request to a response. Pure function: no I/O, easy to test.
+Response route(const Request& req);
 
-}   // namespace http
+}  // namespace http

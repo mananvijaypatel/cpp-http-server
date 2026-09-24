@@ -6,8 +6,8 @@
 #include "http/request.hpp"
 
 using namespace std::literals;
-using http::ParseStatus;
 using http::parse_request_head;
+using http::ParseStatus;
 
 // --------------- Valid requests -----------------
 TEST(RequestParser, ParseStatus) {
@@ -53,7 +53,6 @@ TEST(RequestParser, AllowsMissingHostInHttp10) {
     EXPECT_EQ(r.status, ParseStatus::Complete);
 }
 
-
 // ---------- TCP stream behavior ----------
 
 TEST(RequestParser, IncompleteUntilBlankLine) {
@@ -74,7 +73,7 @@ TEST(RequestParser, CompletesWhenDataArrivesInPieces) {
 
 TEST(RequestParser, ConsumedStopsAtEndOfFirstRequest) {
     // Two pipelined requests in one buffer.
-    std::string first  = "GET /a HTTP/1.1\r\nHost: x\r\n\r\n";
+    std::string first = "GET /a HTTP/1.1\r\nHost: x\r\n\r\n";
     std::string second = "GET /b HTTP/1.1\r\nHost: x\r\n\r\n";
     std::string buffer = first + second;
 
@@ -87,7 +86,6 @@ TEST(RequestParser, ConsumedStopsAtEndOfFirstRequest) {
     ASSERT_EQ(r2.status, ParseStatus::Complete);
     EXPECT_EQ(r2.request.target, "/b");
 }
-
 
 // ---------- Malformed and malicious requests ----------
 
@@ -135,12 +133,11 @@ TEST(RequestParser, RejectsControlCharacterInValue) {
 
 TEST(RequestParser, RejectsOversizedHeadEvenWithoutTerminator) {
     std::string raw = "GET / HTTP/1.1\r\nHost: x\r\nX-Big: ";
-    raw += std::string(9000, 'a');   // no "\r\n\r\n" ever arrives
+    raw += std::string(9000, 'a');  // no "\r\n\r\n" ever arrives
     auto r = parse_request_head(raw);
     EXPECT_EQ(r.status, ParseStatus::Error);
     EXPECT_EQ(r.error_status, 431);
 }
-
 
 // ---------- Connection policy ----------
 

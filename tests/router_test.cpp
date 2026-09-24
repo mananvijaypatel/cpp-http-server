@@ -26,7 +26,7 @@ bool has_header(const http::Response& resp, std::string_view name, std::string_v
     return false;
 }
 
-} // namespace
+}  // namespace
 
 TEST(Router, IndexReturnsHtml) {
     auto resp = http::route(make_request("GET", "/"));

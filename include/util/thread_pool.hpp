@@ -5,37 +5,37 @@
 #include <functional>
 #include <mutex>
 #include <queue>
-#include <vector>
 #include <thread>
+#include <vector>
 
 namespace util {
 
-    // A fixed set of worker threads pulling tasks from a shared queue.
-    class ThreadPool {
-        public:
-            // Starts 'threads' workers immediately.
-            explicit ThreadPool(std::size_t threads);
+// A fixed set of worker threads pulling tasks from a shared queue.
+class ThreadPool {
+  public:
+    // Starts 'threads' workers immediately.
+    explicit ThreadPool(std::size_t threads);
 
-            // Signals workers to stop and waits for them to finish (RAII).
-            ~ThreadPool();
+    // Signals workers to stop and waits for them to finish (RAII).
+    ~ThreadPool();
 
-            ThreadPool(const ThreadPool&) = delete;                // shared state: not copyable
-            ThreadPool& operator = (const ThreadPool&) = delete;  
-            
-            // Adds a task to the queue. Returns false if the pool is shutting down.
-            bool submit(std::function<void()> task);
+    ThreadPool(const ThreadPool&) = delete;  // shared state: not copyable
+    ThreadPool& operator=(const ThreadPool&) = delete;
 
-            // Number of tasks waiting (not yet started). For monitoring.
-            std::size_t pending() const;
+    // Adds a task to the queue. Returns false if the pool is shutting down.
+    bool submit(std::function<void()> task);
 
-        private:
-            void worker_loop();     // what each worker thread runs
+    // Number of tasks waiting (not yet started). For monitoring.
+    std::size_t pending() const;
 
-            mutable std::mutex mutex_;       // protects tasks_ and stopping_
-            std::condition_variable cv_;    // workers sleep on this
-            std::queue<std::function<void()>> tasks_;
-            std::vector<std::thread> workers_;
-            bool stopping_ = false;         // set by the destructor
-    };
+  private:
+    void worker_loop();  // what each worker thread runs
 
-}   // namespace set
+    mutable std::mutex mutex_;    // protects tasks_ and stopping_
+    std::condition_variable cv_;  // workers sleep on this
+    std::queue<std::function<void()>> tasks_;
+    std::vector<std::thread> workers_;
+    bool stopping_ = false;  // set by the destructor
+};
+
+}  // namespace util

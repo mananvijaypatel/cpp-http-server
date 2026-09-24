@@ -1,0 +1,23 @@
+---
+Checks: >
+  bugprone-*,
+  cert-*,
+  clang-analyzer-*,
+  concurrency-*,
+  performance-*,
+  portability-*,
+  modernize-*,
+  readability-*,
+  -bugprone-easily-swappable-parameters,
+  -modernize-use-trailing-return-type,
+  -readability-magic-numbers,
+  -readability-identifier-length,
+  -readability-braces-around-statements
+  -portability-avoid-pragma-once,
+  -performance-enum-size,
+  -readability-use-anyofallof,
+  -readability-function-cognitive-complexity,
+
+WarningsAsErrors: 'bugprone-*,concurrency-*,clang-analyzer-*'
+HeaderFilterRegex: '.*/cpp-http-server/(include|src)/.*'
+FormatStyle: file

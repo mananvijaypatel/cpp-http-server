@@ -43,9 +43,13 @@ class Socket {
     //     return fd_ >= 0;
     // }
 
-    [[nodiscard]] int fd() const noexcept { return fd_; }
-    [[nodiscard]] bool valid() const noexcept { return fd_ >= 0; }
-    
+    [[nodiscard]] int fd() const noexcept {
+        return fd_;
+    }
+    [[nodiscard]] bool valid() const noexcept {
+        return fd_ >= 0;
+    }
+
   private:
     int fd_ = -1;
 };

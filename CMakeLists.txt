@@ -34,6 +34,7 @@ src/thread_pool.cpp
 src/request.cpp 
 src/response.cpp 
 src/router.cpp
+src/event_loop.cpp
 )
 target_include_directories(core PUBLIC include)
 target_compile_options(core PRIVATE -Wall -Wextra -Wpedantic)
@@ -56,6 +57,7 @@ tests/thread_pool_test.cpp
 tests/request_test.cpp
 tests/response_test.cpp
 tests/router_test.cpp
+tests/event_loop_test.cpp
 )
 target_link_libraries(core_tests PRIVATE core GTest::gtest_main)
 include(GoogleTest)

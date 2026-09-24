@@ -25,6 +25,6 @@ Response make_response(int status, std::string content_type, std::string body);
 
 // Turns a Response into bytes to send. Adds Content-Length and Connection.
 // for HEAD requests, the body is omitted but Content-Length is still sent.
-std::string serialize(const Response& resp, bool keep_alie, bool head_request);
+std::string serialize(const Response& resp, bool keep_alive, bool head_request);
 
 }  // namespace http

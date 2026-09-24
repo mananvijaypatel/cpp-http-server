@@ -52,7 +52,10 @@ Response route(const Request& req) {
         std::map<std::string, std::string> sorted(req.headers.begin(), req.headers.end());
         std::string body = req.method + " " + req.target + " " + req.version + "\n\n";
         for (const auto& [name, value] : sorted) {
-            body += name + ": " + value + "\n";
+            body += name;
+            body += ": ";
+            body += value;
+            body += "\n";
         }
         auto resp = make_response(200, std::string(kText), std::move(body));
         resp.add_header("X-Content-Type-Options", "nosniff");

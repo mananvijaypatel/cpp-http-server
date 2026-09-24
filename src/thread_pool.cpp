@@ -31,7 +31,7 @@ ThreadPool::~ThreadPool() {
 
 bool ThreadPool::submit(std::function<void()> task) {
     {
-        std::lock_guard<std::mutex> locak(mutex_);
+        std::scoped_lock lock(mutex_);
         if (stopping_) {
             return false;  // no new work during shutdown
         }

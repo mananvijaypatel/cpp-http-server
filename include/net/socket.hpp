@@ -36,13 +36,16 @@ class Socket {
     Socket(Socket&& other) noexcept;  // moving transfers ownership
     Socket& operator=(Socket&& other) noexcept;
 
-    int fd() const noexcept {
-        return fd_;
-    }
-    bool valid() const noexcept {
-        return fd_ >= 0;
-    }
+    // int fd() const noexcept {
+    //     return fd_;
+    // }
+    // bool valid() const noexcept {
+    //     return fd_ >= 0;
+    // }
 
+    [[nodiscard]] int fd() const noexcept { return fd_; }
+    [[nodiscard]] bool valid() const noexcept { return fd_ >= 0; }
+    
   private:
     int fd_ = -1;
 };

@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 
-#include <fcntl.h>     // fcntl, F_GETFD
-#include <unistd.h>    // pipe, close
-#include <utility>     // std::move
+#include <fcntl.h>   // fcntl, F_GETFD
+#include <unistd.h>  // pipe, close
+#include <utility>   // std::move
 
 #include "net/socket.hpp"
 
@@ -24,7 +24,7 @@ int make_fd() {
     return fds[0];
 }
 
-} // namespace
+}  // namespace
 
 TEST(Socket, DefaultConstructedIsInvalid) {
     net::Socket s;
@@ -33,12 +33,12 @@ TEST(Socket, DefaultConstructedIsInvalid) {
 
 TEST(Socket, DestructorClosesFd) {
     int fd = make_fd();
-    ASSERT_GE(fd, 0);   // ASSERT stops the test here if setup failed
+    ASSERT_GE(fd, 0);  // ASSERT stops the test here if setup failed
 
     {
         net::Socket s{fd};
         EXPECT_TRUE(is_open(fd));
-    }   // s is destroyed here -> should close fd
+    }  // s is destroyed here -> should close fd
 
     EXPECT_FALSE(is_open(fd));
 }
@@ -50,8 +50,8 @@ TEST(Socket, MoveConstructorTransfersOwnership) {
     net::Socket a{fd};
     net::Socket b{std::move(a)};
 
-    EXPECT_FALSE(a.valid());   // a gave up ownership
-    EXPECT_TRUE(b.valid());    // b owns it now
+    EXPECT_FALSE(a.valid());  // a gave up ownership
+    EXPECT_TRUE(b.valid());   // b owns it now
     EXPECT_EQ(b.fd(), fd);
 }
 
@@ -64,9 +64,9 @@ TEST(Socket, MoveAssignmentClosesPreviousFd) {
     net::Socket a{fd1};
     net::Socket b{fd2};
 
-    b = std::move(a);   // b must close fd2 before taking fd1
+    b = std::move(a);  // b must close fd2 before taking fd1
 
-    EXPECT_FALSE(is_open(fd2));   // old fd released, not leaked
+    EXPECT_FALSE(is_open(fd2));  // old fd released, not leaked
     EXPECT_EQ(b.fd(), fd1);
     EXPECT_FALSE(a.valid());
 }

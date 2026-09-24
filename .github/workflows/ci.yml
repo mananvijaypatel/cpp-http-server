@@ -1,11 +1,52 @@
 name: CI
+
 on: [push, pull_request]
+
 jobs:
   build-and-test:
+    name: ${{ matrix.preset }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        preset: [debug, asan, tsan]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+
+      - name: Relax ASLR for ThreadSanitizer
+        if: matrix.preset == 'tsan'
+        run: sudo sysctl -w vm.mmap_rnd_bits=28 || true
+
+      - name: Configure
+        run: cmake --preset ${{ matrix.preset }}
+
+      - name: Build
+        run: cmake --build --preset ${{ matrix.preset }}
+
+      - name: Test
+        run: ctest --preset ${{ matrix.preset }}
+
+  static-analysis:
+    name: format + tidy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get update && sudo apt-get install -y ninja-build
-      - run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
-      - run: cmake --build build
-      - run: ctest --test-dir build --output-on-failure
+
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y ninja-build clang-format clang-tidy
+
+      - name: Check formatting
+        run: |
+          find src include tests \( -name '*.cpp' -o -name '*.hpp' \) \
+            -exec clang-format --dry-run --Werror {} +
+
+      - name: Configure (for compile_commands.json)
+        run: cmake --preset debug
+
+      - name: Run clang-tidy
+        run: |
+          find src include \( -name '*.cpp' -o -name '*.hpp' \) \
+            -exec clang-tidy -p build --quiet {} +

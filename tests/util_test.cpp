@@ -1,7 +1,9 @@
-#include <gtest/gtest.h>
 #include "http/util.hpp"
+#include <gtest/gtest.h>
 
-// GoogleTest printed the expected value as memory address instead of test, That happens because "Host: example.com" is a raw C string (const char*), and GoogleTest prints pointers as addresses. That's why the message is ugly!
+// GoogleTest printed the expected value as memory address instead of test, That happens because
+// "Host: example.com" is a raw C string (const char*), and GoogleTest prints pointers as addresses.
+// That's why the message is ugly!
 
 // adding
 using namespace std::literals;

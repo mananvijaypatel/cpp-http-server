@@ -1,10 +1,10 @@
 #include "http/request.hpp"
 
-#include <cctype>     // std::isalnum, std::tolower
+#include <cctype>  // std::isalnum, std::tolower
 #include <string>
-#include <utility>    // std::move
+#include <utility>  // std::move
 
-#include "http/util.hpp"   // http::trim (from Milestone 0, finally used!)
+#include "http/util.hpp"  // http::trim (from Milestone 0, finally used!)
 
 namespace http {
 namespace {
@@ -26,13 +26,25 @@ std::string to_lower(std::string_view s) {
 
 // "tchar" from RFC 9110: characters allowed in methods and header names.
 bool is_tchar(char c) {
-    if (std::isalnum(static_cast<unsigned char>(c))) {
+    if (std::isalnum(static_cast<unsigned char>(c)) != 0) {
         return true;
     }
     switch (c) {
-        case '!': case '#': case '$': case '%': case '&': case '\'':
-        case '*': case '+': case '-': case '.': case '^': case '_':
-        case '`': case '|': case '~':
+        case '!':
+        case '#':
+        case '$':
+        case '%':
+        case '&':
+        case '\'':
+        case '*':
+        case '+':
+        case '-':
+        case '.':
+        case '^':
+        case '_':
+        case '`':
+        case '|':
+        case '~':
             return true;
         default:
             return false;
@@ -73,7 +85,7 @@ ParseResult fail(int status, std::string reason) {
     return r;
 }
 
-} // namespace
+}  // namespace
 
 std::optional<std::string_view> Request::header(std::string_view name) const {
     auto it = headers.find(to_lower(name));
@@ -91,7 +103,7 @@ ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes
         if (data.size() > max_head_bytes) {
             return fail(431, "request header section too large");
         }
-        return ParseResult{};   // default status is Incomplete: wait for more data
+        return ParseResult{};  // default status is Incomplete: wait for more data
     }
 
     std::size_t head_size = end + kHeadEnd.size();
@@ -99,14 +111,13 @@ ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes
         return fail(431, "request header section too large");
     }
 
-    std::string_view head = data.substr(0, end);   // excludes the final "\r\n\r\n"
+    std::string_view head = data.substr(0, end);  // excludes the final "\r\n\r\n"
 
     // ---- 2. Split off the request line ---------------------------------
     std::size_t line_end = head.find(kCrlf);
-    std::string_view request_line = head.substr(0, line_end);   // npos = whole thing
-    std::string_view rest = (line_end == npos)
-                                ? std::string_view{}
-                                : head.substr(line_end + kCrlf.size());
+    std::string_view request_line = head.substr(0, line_end);  // npos = whole thing
+    std::string_view rest =
+        (line_end == npos) ? std::string_view{} : head.substr(line_end + kCrlf.size());
 
     // ---- 3. Parse "METHOD SP TARGET SP VERSION" --------------------------
     std::size_t sp1 = request_line.find(' ');
@@ -117,18 +128,18 @@ ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes
         return fail(400, "malformed request line");
     }
 
-    std::string_view method  = request_line.substr(0, sp1);
-    std::string_view target  = request_line.substr(sp1 + 1, sp2 - sp1 - 1);
+    std::string_view method = request_line.substr(0, sp1);
+    std::string_view target = request_line.substr(sp1 + 1, sp2 - sp1 - 1);
     std::string_view version = request_line.substr(sp2 + 1);
 
     if (!is_token(method)) {
         return fail(400, "invalid method");
     }
-    if (target.empty() || (target.front() != '/' && target != "*")
-        || has_forbidden_ctl(target, /*allow_tab=*/false)) {
+    if (target.empty() || (target.front() != '/' && target != "*") ||
+        has_forbidden_ctl(target, /*allow_tab=*/false)) {
         return fail(400, "invalid request target");
     }
-    if (version.substr(0, 5) != "HTTP/") {
+    if (!version.starts_with("HTTP/")) {
         return fail(400, "invalid HTTP version");
     }
     if (version != "HTTP/1.1" && version != "HTTP/1.0") {
@@ -136,8 +147,8 @@ ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes
     }
 
     Request req;
-    req.method  = std::string(method);
-    req.target  = std::string(target);
+    req.method = std::string(method);
+    req.target = std::string(target);
     req.version = std::string(version);
 
     // ---- 4. Parse header lines: "Name: value" ----------------------------
@@ -179,7 +190,7 @@ ParseResult parse_request_head(std::string_view data, std::size_t max_head_bytes
     }
 
     // ---- 5. HTTP/1.1 requires a Host header ------------------------------
-    if (req.version == "HTTP/1.1" && req.headers.find("host") == req.headers.end()) {
+    if (req.version == "HTTP/1.1" && !req.headers.contains("host")) {
         return fail(400, "missing Host header");
     }
 
@@ -206,4 +217,4 @@ bool has_body(const Request& req) {
     return length && *length != "0";
 }
 
-} // namespace http
+}  // namespace http

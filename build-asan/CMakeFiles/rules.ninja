@@ -7,14 +7,14 @@
 
 # =============================================================================
 # Project: http_server
-# Configurations: 
+# Configurations: Debug
 # =============================================================================
 # =============================================================================
 
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__core_
+rule CXX_SCAN__core_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -23,7 +23,7 @@ rule CXX_SCAN__core_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__core_
+rule CXX_DYNDEP__core_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=CMakeFiles/core.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -34,7 +34,7 @@ rule CXX_DYNDEP__core_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__core_scanned_
+rule CXX_COMPILER__core_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -44,7 +44,7 @@ rule CXX_COMPILER__core_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__core_unscanned_
+rule CXX_COMPILER__core_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -54,7 +54,7 @@ rule CXX_COMPILER__core_unscanned_
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__core_
+rule CXX_STATIC_LIBRARY_LINKER__core_Debug
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -63,7 +63,7 @@ rule CXX_STATIC_LIBRARY_LINKER__core_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__server_
+rule CXX_SCAN__server_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -72,7 +72,7 @@ rule CXX_SCAN__server_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__server_
+rule CXX_DYNDEP__server_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=CMakeFiles/server.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -83,7 +83,7 @@ rule CXX_DYNDEP__server_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__server_scanned_
+rule CXX_COMPILER__server_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -93,7 +93,7 @@ rule CXX_COMPILER__server_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__server_unscanned_
+rule CXX_COMPILER__server_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -103,7 +103,7 @@ rule CXX_COMPILER__server_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__server_
+rule CXX_EXECUTABLE_LINKER__server_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
@@ -114,7 +114,7 @@ rule CXX_EXECUTABLE_LINKER__server_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__core_tests_
+rule CXX_SCAN__core_tests_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -123,7 +123,7 @@ rule CXX_SCAN__core_tests_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__core_tests_
+rule CXX_DYNDEP__core_tests_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=CMakeFiles/core_tests.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -134,7 +134,7 @@ rule CXX_DYNDEP__core_tests_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__core_tests_scanned_
+rule CXX_COMPILER__core_tests_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -144,7 +144,7 @@ rule CXX_COMPILER__core_tests_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__core_tests_unscanned_
+rule CXX_COMPILER__core_tests_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -154,7 +154,7 @@ rule CXX_COMPILER__core_tests_unscanned_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__core_tests_
+rule CXX_EXECUTABLE_LINKER__core_tests_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
@@ -173,7 +173,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__gmock_
+rule CXX_SCAN__gmock_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -182,7 +182,7 @@ rule CXX_SCAN__gmock_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__gmock_
+rule CXX_DYNDEP__gmock_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -193,7 +193,7 @@ rule CXX_DYNDEP__gmock_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gmock_scanned_
+rule CXX_COMPILER__gmock_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -203,7 +203,7 @@ rule CXX_COMPILER__gmock_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gmock_unscanned_
+rule CXX_COMPILER__gmock_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -213,7 +213,7 @@ rule CXX_COMPILER__gmock_unscanned_
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__gmock_
+rule CXX_STATIC_LIBRARY_LINKER__gmock_Debug
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -222,7 +222,7 @@ rule CXX_STATIC_LIBRARY_LINKER__gmock_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__gmock_main_
+rule CXX_SCAN__gmock_main_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -231,7 +231,7 @@ rule CXX_SCAN__gmock_main_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__gmock_main_
+rule CXX_DYNDEP__gmock_main_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -242,7 +242,7 @@ rule CXX_DYNDEP__gmock_main_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gmock_main_scanned_
+rule CXX_COMPILER__gmock_main_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -252,7 +252,7 @@ rule CXX_COMPILER__gmock_main_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gmock_main_unscanned_
+rule CXX_COMPILER__gmock_main_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -262,7 +262,7 @@ rule CXX_COMPILER__gmock_main_unscanned_
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__gmock_main_
+rule CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -271,7 +271,7 @@ rule CXX_STATIC_LIBRARY_LINKER__gmock_main_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__gtest_
+rule CXX_SCAN__gtest_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -280,7 +280,7 @@ rule CXX_SCAN__gtest_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__gtest_
+rule CXX_DYNDEP__gtest_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=_deps/googletest-build/googletest/CMakeFiles/gtest.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -291,7 +291,7 @@ rule CXX_DYNDEP__gtest_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gtest_scanned_
+rule CXX_COMPILER__gtest_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -301,7 +301,7 @@ rule CXX_COMPILER__gtest_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gtest_unscanned_
+rule CXX_COMPILER__gtest_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -311,7 +311,7 @@ rule CXX_COMPILER__gtest_unscanned_
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__gtest_
+rule CXX_STATIC_LIBRARY_LINKER__gtest_Debug
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -320,7 +320,7 @@ rule CXX_STATIC_LIBRARY_LINKER__gtest_
 #############################################
 # Rule for generating CXX dependencies.
 
-rule CXX_SCAN__gtest_main_
+rule CXX_SCAN__gtest_main_Debug
   depfile = $DEP_FILE
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -E -x c++ $in -MT $DYNDEP_INTERMEDIATE_FILE -MD -MF $DEP_FILE -fmodules-ts -fdeps-file=$DYNDEP_INTERMEDIATE_FILE -fdeps-target=$OBJ_FILE -fdeps-format=p1689r5 -o $PREPROCESSED_OUTPUT_FILE
   description = Scanning $in for CXX dependencies
@@ -329,7 +329,7 @@ rule CXX_SCAN__gtest_main_
 #############################################
 # Rule to generate ninja dyndep files for CXX.
 
-rule CXX_DYNDEP__gtest_main_
+rule CXX_DYNDEP__gtest_main_Debug
   command = /usr/bin/cmake -E cmake_ninja_dyndep --tdi=_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/CXXDependInfo.json --lang=CXX --modmapfmt=gcc --dd=$out @$out.rsp
   description = Generating CXX dyndep file $out
   rspfile = $out.rsp
@@ -340,7 +340,7 @@ rule CXX_DYNDEP__gtest_main_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gtest_main_scanned_
+rule CXX_COMPILER__gtest_main_scanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -fmodules-ts -fmodule-mapper=$DYNDEP_MODULE_MAP_FILE -MD -fdeps-format=p1689r5 -x c++ -o $out -c $in
@@ -350,7 +350,7 @@ rule CXX_COMPILER__gtest_main_scanned_
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__gtest_main_unscanned_
+rule CXX_COMPILER__gtest_main_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -360,7 +360,7 @@ rule CXX_COMPILER__gtest_main_unscanned_
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__gtest_main_
+rule CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT

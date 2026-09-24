@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: http_server
-# Configurations: 
+# Configurations: Debug
 # =============================================================================
 
 #############################################
@@ -20,6 +20,11 @@
 
 ninja_required_version = 1.5
 
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
 # =============================================================================
 # Include auxiliary files.
 
@@ -44,49 +49,55 @@ cmake_ninja_workdir = /home/ectf/Desktop/projects/cpp-http-server/build-asan/
 
 build cmake_object_order_depends_target_core: phony || .
 
-build CMakeFiles/core.dir/src/util.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/util.cpp || cmake_object_order_depends_target_core
+build CMakeFiles/core.dir/src/util.cpp.o: CXX_COMPILER__core_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/util.cpp || cmake_object_order_depends_target_core
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core.dir/src/util.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/core.dir
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/core.dir
 
-build CMakeFiles/core.dir/src/socket.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/socket.cpp || cmake_object_order_depends_target_core
+build CMakeFiles/core.dir/src/socket.cpp.o: CXX_COMPILER__core_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/socket.cpp || cmake_object_order_depends_target_core
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core.dir/src/socket.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/core.dir
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/core.dir
 
-build CMakeFiles/core.dir/src/thread_pool.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/thread_pool.cpp || cmake_object_order_depends_target_core
+build CMakeFiles/core.dir/src/thread_pool.cpp.o: CXX_COMPILER__core_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/thread_pool.cpp || cmake_object_order_depends_target_core
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core.dir/src/thread_pool.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/core.dir
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/core.dir
 
-build CMakeFiles/core.dir/src/request.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/request.cpp || cmake_object_order_depends_target_core
+build CMakeFiles/core.dir/src/request.cpp.o: CXX_COMPILER__core_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/request.cpp || cmake_object_order_depends_target_core
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core.dir/src/request.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/core.dir
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/core.dir
 
-build CMakeFiles/core.dir/src/response.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/response.cpp || cmake_object_order_depends_target_core
+build CMakeFiles/core.dir/src/response.cpp.o: CXX_COMPILER__core_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/response.cpp || cmake_object_order_depends_target_core
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core.dir/src/response.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/core.dir
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
   TARGET_SUPPORT_DIR = CMakeFiles/core.dir
 
-build CMakeFiles/core.dir/src/router.cpp.o: CXX_COMPILER__core_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/router.cpp || cmake_object_order_depends_target_core
+build CMakeFiles/core.dir/src/router.cpp.o: CXX_COMPILER__core_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/router.cpp || cmake_object_order_depends_target_core
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core.dir/src/router.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer -Wall -Wextra -Wpedantic
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/core.dir
   OBJECT_FILE_DIR = CMakeFiles/core.dir/src
@@ -100,7 +111,9 @@ build CMakeFiles/core.dir/src/router.cpp.o: CXX_COMPILER__core_unscanned_ /home/
 #############################################
 # Link the static library libcore.a
 
-build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_ CMakeFiles/core.dir/src/util.cpp.o CMakeFiles/core.dir/src/socket.cpp.o CMakeFiles/core.dir/src/thread_pool.cpp.o CMakeFiles/core.dir/src/request.cpp.o CMakeFiles/core.dir/src/response.cpp.o CMakeFiles/core.dir/src/router.cpp.o
+build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_Debug CMakeFiles/core.dir/src/util.cpp.o CMakeFiles/core.dir/src/socket.cpp.o CMakeFiles/core.dir/src/thread_pool.cpp.o CMakeFiles/core.dir/src/request.cpp.o CMakeFiles/core.dir/src/response.cpp.o CMakeFiles/core.dir/src/router.cpp.o
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/core.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -117,9 +130,10 @@ build libcore.a: CXX_STATIC_LIBRARY_LINKER__core_ CMakeFiles/core.dir/src/util.c
 
 build cmake_object_order_depends_target_server: phony || cmake_object_order_depends_target_core
 
-build CMakeFiles/server.dir/src/main.cpp.o: CXX_COMPILER__server_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/src/main.cpp || cmake_object_order_depends_target_server
+build CMakeFiles/server.dir/src/main.cpp.o: CXX_COMPILER__server_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/src/main.cpp || cmake_object_order_depends_target_server
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/server.dir/src/main.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include
   OBJECT_DIR = CMakeFiles/server.dir
   OBJECT_FILE_DIR = CMakeFiles/server.dir/src
@@ -133,8 +147,10 @@ build CMakeFiles/server.dir/src/main.cpp.o: CXX_COMPILER__server_unscanned_ /hom
 #############################################
 # Link the executable server
 
-build server: CXX_EXECUTABLE_LINKER__server_ CMakeFiles/server.dir/src/main.cpp.o | libcore.a || libcore.a
+build server: CXX_EXECUTABLE_LINKER__server_Debug CMakeFiles/server.dir/src/main.cpp.o | libcore.a || libcore.a
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/server.dir/link.d
+  FLAGS = -g
   LINK_FLAGS = -fsanitize=address,undefined -Wl,--dependency-file=CMakeFiles/server.dir/link.d
   LINK_LIBRARIES = libcore.a
   OBJECT_DIR = CMakeFiles/server.dir
@@ -153,49 +169,55 @@ build server: CXX_EXECUTABLE_LINKER__server_ CMakeFiles/server.dir/src/main.cpp.
 
 build cmake_object_order_depends_target_core_tests: phony || cmake_object_order_depends_target_core cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build CMakeFiles/core_tests.dir/tests/util_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/util_test.cpp || cmake_object_order_depends_target_core_tests
+build CMakeFiles/core_tests.dir/tests/util_test.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/tests/util_test.cpp || cmake_object_order_depends_target_core_tests
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/tests/util_test.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/core_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
 
-build CMakeFiles/core_tests.dir/tests/socket_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/socket_test.cpp || cmake_object_order_depends_target_core_tests
+build CMakeFiles/core_tests.dir/tests/socket_test.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/tests/socket_test.cpp || cmake_object_order_depends_target_core_tests
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/tests/socket_test.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/core_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
 
-build CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/thread_pool_test.cpp || cmake_object_order_depends_target_core_tests
+build CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/tests/thread_pool_test.cpp || cmake_object_order_depends_target_core_tests
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/core_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
 
-build CMakeFiles/core_tests.dir/tests/request_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/request_test.cpp || cmake_object_order_depends_target_core_tests
+build CMakeFiles/core_tests.dir/tests/request_test.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/tests/request_test.cpp || cmake_object_order_depends_target_core_tests
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/tests/request_test.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/core_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
 
-build CMakeFiles/core_tests.dir/tests/response_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/response_test.cpp || cmake_object_order_depends_target_core_tests
+build CMakeFiles/core_tests.dir/tests/response_test.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/tests/response_test.cpp || cmake_object_order_depends_target_core_tests
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/tests/response_test.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/core_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
   TARGET_SUPPORT_DIR = CMakeFiles/core_tests.dir
 
-build CMakeFiles/core_tests.dir/tests/router_test.cpp.o: CXX_COMPILER__core_tests_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/tests/router_test.cpp || cmake_object_order_depends_target_core_tests
+build CMakeFiles/core_tests.dir/tests/router_test.cpp.o: CXX_COMPILER__core_tests_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/tests/router_test.cpp || cmake_object_order_depends_target_core_tests
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/tests/router_test.cpp.o.d
-  FLAGS = -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=gnu++20 -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/core_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/core_tests.dir/tests
@@ -209,8 +231,10 @@ build CMakeFiles/core_tests.dir/tests/router_test.cpp.o: CXX_COMPILER__core_test
 #############################################
 # Link the executable core_tests
 
-build core_tests core_tests[1]_tests.cmake | ${cmake_ninja_workdir}core_tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__core_tests_ CMakeFiles/core_tests.dir/tests/util_test.cpp.o CMakeFiles/core_tests.dir/tests/socket_test.cpp.o CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o CMakeFiles/core_tests.dir/tests/request_test.cpp.o CMakeFiles/core_tests.dir/tests/response_test.cpp.o CMakeFiles/core_tests.dir/tests/router_test.cpp.o | libcore.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcore.a
+build core_tests core_tests[1]_tests.cmake | ${cmake_ninja_workdir}core_tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__core_tests_Debug CMakeFiles/core_tests.dir/tests/util_test.cpp.o CMakeFiles/core_tests.dir/tests/socket_test.cpp.o CMakeFiles/core_tests.dir/tests/thread_pool_test.cpp.o CMakeFiles/core_tests.dir/tests/request_test.cpp.o CMakeFiles/core_tests.dir/tests/response_test.cpp.o CMakeFiles/core_tests.dir/tests/router_test.cpp.o | libcore.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcore.a
+  CONFIG = Debug
   DEP_FILE = CMakeFiles/core_tests.dir/link.d
+  FLAGS = -g
   LINK_FLAGS = -fsanitize=address,undefined -Wl,--dependency-file=CMakeFiles/core_tests.dir/link.d
   LINK_LIBRARIES = libcore.a  lib/libgtest_main.a  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/core_tests.dir
@@ -394,9 +418,10 @@ build _deps/googletest-build/install/strip: phony _deps/googletest-build/CMakeFi
 
 build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
 
-build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  CONFIG = Debug
   DEP_FILE = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
-  FLAGS = -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/include -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
   OBJECT_FILE_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src
@@ -410,7 +435,9 @@ build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o:
 #############################################
 # Link the static library lib/libgmock.a
 
-build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_ _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -427,9 +454,10 @@ build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_ _deps/googletest-build/g
 
 build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
 
-build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  CONFIG = Debug
   DEP_FILE = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
-  FLAGS = -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googlemock -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
   OBJECT_FILE_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src
@@ -443,7 +471,9 @@ build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main
 #############################################
 # Link the static library lib/libgmock_main.a
 
-build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_ _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -542,9 +572,10 @@ build _deps/googletest-build/googlemock/install/strip: phony _deps/googletest-bu
 
 build cmake_object_order_depends_target_gtest: phony || .
 
-build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  CONFIG = Debug
   DEP_FILE = _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
-  FLAGS = -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -I/home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir
   OBJECT_FILE_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src
@@ -558,7 +589,9 @@ build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o:
 #############################################
 # Link the static library lib/libgtest.a
 
-build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_ _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -575,9 +608,10 @@ build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_ _deps/googletest-build/g
 
 build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
 
-build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_unscanned_ /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_unscanned_Debug /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  CONFIG = Debug
   DEP_FILE = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
-  FLAGS = -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
+  FLAGS = -g -std=c++20 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest/include -isystem /home/ectf/Desktop/projects/cpp-http-server/build-asan/_deps/googletest-src/googletest
   OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
   OBJECT_FILE_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src
@@ -591,7 +625,9 @@ build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main
 #############################################
 # Link the static library lib/libgtest_main.a
 
-build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_ _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
   POST_BUILD = :
   PRE_LINK = :

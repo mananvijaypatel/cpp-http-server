@@ -9,8 +9,10 @@ TEST(Response, SerializesStatusLineHeadersAndBody) {
     auto resp = http::make_response(200, "text/plain", "hello");
     std::string out = http::serialize(resp, /*keep_alive=*/true, /*head_request=*/false);
 
-    EXPECT_EQ(out.rfind("HTTP/1.1 200 OK\r\n", 0), 0u);   // starts with status line
-    // out.rfind(prefix, 0) == 0 is a common idiom for "starts with" in C++17. It searches backward from position 0, so it can only match at the very start. (C++20 adds out.starts_with(...), which you could use instead since we're on C++20.)
+    EXPECT_EQ(out.rfind("HTTP/1.1 200 OK\r\n", 0), 0u);  // starts with status line
+    // out.rfind(prefix, 0) == 0 is a common idiom for "starts with" in C++17. It searches backward
+    // from position 0, so it can only match at the very start. (C++20 adds out.starts_with(...),
+    // which you could use instead since we're on C++20.)
     EXPECT_NE(out.find("Content-Type: text/plain\r\n"), std::string::npos);
     EXPECT_NE(out.find("Content-Length: 5\r\n"), std::string::npos);
     EXPECT_NE(out.find("Connection: keep-alive\r\n"), std::string::npos);
@@ -22,7 +24,7 @@ TEST(Response, HeadOmitsBodyButKeepsContentLength) {
     std::string out = http::serialize(resp, true, /*head_request=*/true);
 
     EXPECT_NE(out.find("Content-Length: 5\r\n"), std::string::npos);
-    EXPECT_EQ(out.substr(out.size() - 4), "\r\n\r\n");   // ends right after headers
+    EXPECT_EQ(out.substr(out.size() - 4), "\r\n\r\n");  // ends right after headers
 }
 
 TEST(Response, CloseConnectionHeader) {

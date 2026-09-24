@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
-#include <stdexcept>   // std::runtime_error
+#include <stdexcept>  // std::runtime_error
 
 #include <atomic>
 #include <chrono>
-#include <set>
 #include <mutex>
+#include <set>
 #include <thread>
 
 #include "util/thread_pool.hpp"
@@ -17,7 +17,7 @@ TEST(ThreadPool, RunsAllSubmittedTasks) {
         for (int i = 0; i < 1000; ++i) {
             pool.submit([&counter] { ++counter; });
         }
-    }   // destructor drains the queue and joins all workers
+    }  // destructor drains the queue and joins all workers
 
     EXPECT_EQ(counter.load(), 1000);
 }
@@ -37,9 +37,8 @@ TEST(ThreadPool, UsesMultipleThreads) {
         }
     }
 
-    EXPECT_GT(ids.size(), 1u);   // more than one worker actually ran tasks
+    EXPECT_GT(ids.size(), 1u);  // more than one worker actually ran tasks
 }
-
 
 TEST(ThreadPool, TasksThatThrowDoNotKillWorkers) {
     std::atomic<int> completed{0};
@@ -49,16 +48,15 @@ TEST(ThreadPool, TasksThatThrowDoNotKillWorkers) {
         for (int i = 0; i < 10; ++i) {
             pool.submit([&completed, i] {
                 if (i % 2 == 0) {
-                    throw std::runtime_error("boom");   // half the tasks fail
+                    throw std::runtime_error("boom");  // half the tasks fail
                 }
                 ++completed;
             });
         }
-    }   // pool drains and joins; workers must still be alive to finish the rest
+    }  // pool drains and joins; workers must still be alive to finish the rest
 
     EXPECT_EQ(completed.load(), 5);
 }
-
 
 TEST(ThreadPool, SubmitSucceedsWhileRunning) {
     util::ThreadPool pool(2);

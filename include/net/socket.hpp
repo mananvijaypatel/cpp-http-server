@@ -66,4 +66,7 @@ void send_all(const Socket& s, std::string_view data);
 // make recv() fail with EAGAIN if no data arrives within `timeout`.
 void set_recv_timeout(const Socket& s, std::chrono::milliseconds timeout);
 
+// Makes recv/send/accept return EAGAIN instead of blocking.
+void set_nonblocking(const Socket& s);
+
 }  // namespace net

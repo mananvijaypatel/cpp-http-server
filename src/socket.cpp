@@ -4,6 +4,7 @@
 #include <system_error>  // std::system_error
 #include <utility>       // std::exchange
 
+#include <fcntl.h>
 #include <netinet/in.h>  // sockaddr_in, htons, htonl, INADDR_LOOPBACK
 #include <sys/socket.h>  // socket, setsockopt, bind, listen, send
 #include <sys/types.h>   // ssize_t
@@ -100,6 +101,16 @@ void set_recv_timeout(const Socket& s, std::chrono::milliseconds timeout) {
 
     if (::setsockopt(s.fd(), SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv)) < 0) {
         throw std::system_error(errno, std::generic_category(), "setsockopt(SO_RCVTIME)");
+    }
+}
+
+void set_nonblocking(const Socket& s) {
+    int flags = ::fcntl(s.fd(), F_GETFL, 0);
+    if (flags < 0) {
+        throw std::system_error(errno, std::generic_category(), "fcntl(F_GETFL)");
+    }
+    if (::fcntl(s.fd(), F_SETFL, flags | O_NONBLOCK) < 0) {
+        throw std::system_error(errno, std::generic_category(), "fcntl(F_SETFL)");
     }
 }
 

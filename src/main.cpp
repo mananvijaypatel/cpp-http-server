@@ -1,144 +1,247 @@
-#include <atomic>
 #include <cerrno>
 #include <chrono>
 #include <cstddef>
+#include <cstdint>
 #include <exception>
 #include <iostream>
-#include <memory>
 #include <string>
 #include <system_error>
-#include <thread>
+#include <unordered_map>
+#include <utility>
 
+#include <sys/epoll.h>
 #include <sys/socket.h>
 #include <sys/types.h>
 
 #include "http/request.hpp"
 #include "http/response.hpp"
 #include "http/router.hpp"
+#include "net/event_loop.hpp"
 #include "net/socket.hpp"
-#include "util/thread_pool.hpp"
 
 namespace {
 
-std::atomic<int> g_active_clients{0};
+using Clock = std::chrono::steady_clock;
 
-// Close keep-alive connections that stay silent this long.
-constexpr auto kIdleTimeout = std::chrono::seconds(5);
+constexpr auto kIdleTimeout = std::chrono::seconds(15);
+constexpr int kSweepIntervalMs = 1000;
+
+// Everything one connection needs. With a single thread multiplexing many
+// connections, this state can no longer live in local variables.
+struct Connection {
+    net::Socket socket;
+    std::string in;                    // received, not yet parsed
+    std::string out;                   // produced, not yet sent
+    bool close_after_flush = false;    // finish writing, then hang up
+    std::uint32_t interest = EPOLLIN;  // what we last told epoll to watch
+    Clock::time_point deadline;
+
+    explicit Connection(net::Socket s)
+        : socket(std::move(s)), deadline(Clock::now() + kIdleTimeout) {}
+};
+
+using ConnectionMap = std::unordered_map<int, Connection>;
 
 std::string errno_message(int err) {
     return std::generic_category().message(err);
 }
 
-// Read, parse, respond, and repeat (keep-alive) until the connection should close.
-void serve_http(const net::Socket& client) {
-    std::string buffer;  // bytes received but not yet parsed
+// Drain the socket into conn.in. Returns false if the connection is finished.
+bool read_available(Connection& conn) {
     char chunk[4096];
 
     while (true) {
-        // 1. Parse what we already have FIRST. The buffer may already contain
-        //    a complete request (e.g. pipelined requests from one recv).
-        http::ParseResult parsed = http::parse_request_head(buffer);
+        ssize_t n = ::recv(conn.socket.fd(), chunk, sizeof(chunk), 0);
+
+        if (n > 0) {
+            conn.in.append(chunk, static_cast<std::size_t>(n));
+            continue;
+        }
+        if (n == 0) {
+            return false;  // peer closed cleanly
+        }
+        if (errno == EINTR) {
+            continue;
+        }
+        if (errno == EAGAIN || errno == EWOULDBLOCK) {
+            return true;  // socket drained: this is the normal exit
+        }
+        std::cerr << "recv: " << errno_message(errno) << '\n';
+        return false;
+    }
+}
+
+// Parse every complete request in the buffer and queue the responses.
+// Returns false if the connection should close once conn.out is flushed.
+bool process_requests(Connection& conn) {
+    while (true) {
+        http::ParseResult parsed = http::parse_request_head(conn.in);
 
         if (parsed.status == http::ParseStatus::Error) {
             auto resp = http::make_response(parsed.error_status, "text/plain; charset=utf-8",
                                             parsed.error + "\n");
-            net::send_all(client, http::serialize(resp, /*keep_alive=*/false,
-                                                  /*head_request=*/false));
+            conn.out += http::serialize(resp, false, false);
             std::cout << "rejected request: " << parsed.error << '\n';
-            return;  // after a parse error the stream can't be trusted: close
+            return false;
         }
 
-        if (parsed.status == http::ParseStatus::Complete) {
-            const http::Request& req = parsed.request;
-            buffer.erase(0, parsed.consumed);  // drop this request's bytes
-
-            // We don't read bodies yet, so a body would be misread as the
-            // next request. If there is one, answer and then close.
-            bool keep_alive = http::wants_keep_alive(req) && !http::has_body(req);
-
-            auto start = std::chrono::steady_clock::now();
-
-            http::Response resp = http::route(req);
-            net::send_all(client, http::serialize(resp, keep_alive, req.method == "HEAD"));
-
-            auto us = std::chrono::duration_cast<std::chrono::microseconds>(
-                          std::chrono::steady_clock::now() - start)
-                          .count();
-
-            std::cout << req.method << ' ' << req.target << " -> " << resp.status << " (" << us
-                      << "us)\n";
-
-            if (!keep_alive) {
-                return;
-            }
-            continue;  // another request might already be buffered
+        if (parsed.status == http::ParseStatus::Incomplete) {
+            return true;  // need more bytes; the parser caps the buffer at 8 KB
         }
 
-        // 2. Incomplete: read more bytes from the client.
-        ssize_t n = ::recv(client.fd(), chunk, sizeof(chunk), 0);
+        const http::Request& req = parsed.request;
+        conn.in.erase(0, parsed.consumed);
 
-        if (n > 0) {
-            buffer.append(chunk, static_cast<std::size_t>(n));
-        } else if (n == 0) {
-            return;  // client closed the connection
-        } else {
-            if (errno == EINTR) {
-                continue;
-            }
-            if (errno == EAGAIN || errno == EWOULDBLOCK) {
-                return;  // idle timeout: quietly close
-            }
-            std::cerr << "recv: " << errno_message(errno) << '\n';
-            return;
+        bool keep_alive = http::wants_keep_alive(req) && !http::has_body(req);
+
+        auto start = Clock::now();
+        http::Response resp = http::route(req);
+        conn.out += http::serialize(resp, keep_alive, req.method == "HEAD");
+        auto us =
+            std::chrono::duration_cast<std::chrono::microseconds>(Clock::now() - start).count();
+
+        std::cout << req.method << ' ' << req.target << " -> " << resp.status << " (" << us
+                  << "us)\n";
+
+        if (!keep_alive) {
+            return false;
         }
     }
 }
 
-// Runs on a worker thread. Borrows the socket owned by the task's shared_ptr.
-void serve_client(const net::Socket& client) {
-    int now = ++g_active_clients;
-    std::cout << "Client connected (fd " << client.fd() << "), active: " << now << '\n';
+// Send as much of conn.out as the kernel will take. Returns false on a fatal error.
+bool flush_output(Connection& conn) {
+    while (!conn.out.empty()) {
+        ssize_t n = ::send(conn.socket.fd(), conn.out.data(), conn.out.size(), MSG_NOSIGNAL);
 
-    try {
-        net::set_recv_timeout(client, kIdleTimeout);
-        serve_http(client);
-    } catch (const std::exception& e) {
-        std::cerr << "client error: " << e.what() << '\n';
+        if (n > 0) {
+            conn.out.erase(0, static_cast<std::size_t>(n));
+            continue;
+        }
+        if (errno == EINTR) {
+            continue;
+        }
+        if (errno == EAGAIN || errno == EWOULDBLOCK) {
+            return true;  // kernel send buffer full: retry on EPOLLOUT
+        }
+        return false;  // client vanished
+    }
+    return true;
+}
+
+// Tell epoll what we care about now, but only if it changed.
+void update_interest(net::EventLoop& loop, Connection& conn) {
+    std::uint32_t events = conn.close_after_flush ? 0U : static_cast<std::uint32_t>(EPOLLIN);
+    if (!conn.out.empty()) {
+        events |= EPOLLOUT;
+    }
+    if (events != conn.interest) {
+        loop.modify(conn.socket.fd(), events);
+        conn.interest = events;
+    }
+}
+
+// Handle one ready connection. Returns false when it should be dropped.
+bool service(Connection& conn, std::uint32_t events) {
+    if ((events & (EPOLLERR | EPOLLHUP)) != 0) {
+        return false;
     }
 
-    now = --g_active_clients;
-    std::cout << "Client disconnected (fd " << client.fd() << "), active: " << now << '\n';
+    if ((events & EPOLLIN) != 0) {
+        if (!read_available(conn)) {
+            return false;
+        }
+        conn.deadline = Clock::now() + kIdleTimeout;
+        if (!process_requests(conn)) {
+            conn.close_after_flush = true;
+        }
+    }
+
+    // Always try to write: a response queued just now usually fits immediately,
+    // which saves a whole epoll round trip.
+    if (!flush_output(conn)) {
+        return false;
+    }
+
+    return !(conn.close_after_flush && conn.out.empty());
+}
+
+// Accept every pending connection until the backlog is empty.
+void accept_all(const net::Socket& listener, net::EventLoop& loop, ConnectionMap& conns) {
+    while (true) {
+        int fd = ::accept4(listener.fd(), nullptr, nullptr, SOCK_NONBLOCK | SOCK_CLOEXEC);
+
+        if (fd < 0) {
+            if (errno == EINTR) {
+                continue;
+            }
+            if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                return;  // no more waiting connections
+            }
+            if (errno == EMFILE || errno == ENFILE) {
+                // Out of file descriptors. The listener stays readable, so
+                // returning here means we retry on the next loop iteration
+                // instead of spinning on a failing accept4().
+                std::cerr << "accept: out of file descriptors, deferring\n";
+                return;
+            }
+            std::cerr << "accept: " << errno_message(errno) << '\n';
+            return;
+        }
+
+        net::Socket client{fd};
+        loop.add(fd, EPOLLIN);
+        conns.try_emplace(fd, std::move(client));
+    }
+}
+
+// Close connections that have gone quiet for too long.
+void sweep_timeouts(net::EventLoop& loop, ConnectionMap& conns) {
+    auto now = Clock::now();
+    for (auto it = conns.begin(); it != conns.end();) {
+        if (it->second.deadline <= now) {
+            loop.remove(it->first);
+            it = conns.erase(it);  // erase returns the next valid iterator
+        } else {
+            ++it;
+        }
+    }
 }
 
 }  // namespace
 
 int main() {
     try {
-        unsigned int hw = std::thread::hardware_concurrency();
-        std::size_t worker_count = (hw > 0) ? hw : 4;
-
-        util::ThreadPool pool(worker_count);
+        net::EventLoop loop;
         auto listener = net::listen_tcp(8080);
+        net::set_nonblocking(listener);
+        loop.add(listener.fd(), EPOLLIN);
 
-        std::cout << "HTTP server listening on http://127.0.0.1:8080 with " << worker_count
-                  << " workers\n";
+        ConnectionMap conns;
 
+        std::cout << "HTTP server (epoll, single thread) listening on http://127.0.0.1:8080\n";
+        std::cout << "sizeof(Connection) = " << sizeof(Connection) << " bytes\n";
         while (true) {
-            int fd = ::accept(listener.fd(), nullptr, nullptr);
-
-            if (fd < 0) {
-                if (errno == EINTR) {
+            for (const epoll_event& ev : loop.wait(kSweepIntervalMs)) {
+                if (ev.data.fd == listener.fd()) {
+                    accept_all(listener, loop, conns);
                     continue;
                 }
-                std::cerr << "accept: " << errno_message(errno) << '\n';
-                continue;
+
+                auto it = conns.find(ev.data.fd);
+                if (it == conns.end()) {
+                    continue;  // already cleaned up this round
+                }
+
+                if (service(it->second, ev.events)) {
+                    update_interest(loop, it->second);
+                } else {
+                    loop.remove(it->first);
+                    conns.erase(it);
+                }
             }
 
-            auto client = std::make_shared<net::Socket>(fd);
-
-            if (!pool.submit([client] { serve_client(*client); })) {
-                std::cerr << "pool is shutting down, dropping client\n";
-            }
+            sweep_timeouts(loop, conns);
         }
 
     } catch (const std::exception& e) {

@@ -1,13 +1,17 @@
+#include <atomic>
 #include <cerrno>
 #include <chrono>
+#include <csignal>
 #include <cstddef>
 #include <cstdint>
 #include <exception>
 #include <iostream>
 #include <string>
 #include <system_error>
+#include <thread>
 #include <unordered_map>
 #include <utility>
+#include <vector>
 
 #include <sys/epoll.h>
 #include <sys/socket.h>
@@ -25,6 +29,15 @@ using Clock = std::chrono::steady_clock;
 
 constexpr auto kIdleTimeout = std::chrono::seconds(15);
 constexpr int kSweepIntervalMs = 1000;
+
+// Lock-free atomic<bool> is one of the few types a signal handler may touch
+// (C++11 onward), and unlike volatile it also synchronises between threads.
+std::atomic<bool> g_shutdown{false};
+static_assert(std::atomic<bool>::is_always_lock_free, "signal handlers require a lock-free atomic");
+
+void on_signal(int /*sig*/) {
+    g_shutdown.store(true, std::memory_order_relaxed);
+}
 
 // Everything one connection needs. With a single thread multiplexing many
 // connections, this state can no longer live in local variables.
@@ -97,11 +110,11 @@ bool process_requests(Connection& conn) {
         auto start = Clock::now();
         http::Response resp = http::route(req);
         conn.out += http::serialize(resp, keep_alive, req.method == "HEAD");
-        auto us =
-            std::chrono::duration_cast<std::chrono::microseconds>(Clock::now() - start).count();
+        auto ns =
+            std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start).count();
 
-        std::cout << req.method << ' ' << req.target << " -> " << resp.status << " (" << us
-                  << "us)\n";
+        std::cout << req.method << ' ' << req.target << " -> " << resp.status << " (" << ns
+                  << "ns)\n";
 
         if (!keep_alive) {
             return false;
@@ -208,20 +221,20 @@ void sweep_timeouts(net::EventLoop& loop, ConnectionMap& conns) {
     }
 }
 
-}  // namespace
+// ---- new: the loop body, now a function so N threads can run it ----
 
-int main() {
+// One worker: its own listening socket, its own epoll, its own connections.
+// Nothing here is shared with other workers, so no locks are needed.
+void run_worker(std::size_t id, std::uint16_t port) {
     try {
         net::EventLoop loop;
-        auto listener = net::listen_tcp(8080);
+        auto listener = net::listen_tcp(port, 128, /*reuse_port=*/true);
         net::set_nonblocking(listener);
         loop.add(listener.fd(), EPOLLIN);
 
         ConnectionMap conns;
 
-        std::cout << "HTTP server (epoll, single thread) listening on http://127.0.0.1:8080\n";
-        std::cout << "sizeof(Connection) = " << sizeof(Connection) << " bytes\n";
-        while (true) {
+        while (!g_shutdown.load(std::memory_order_relaxed)) {
             for (const epoll_event& ev : loop.wait(kSweepIntervalMs)) {
                 if (ev.data.fd == listener.fd()) {
                     accept_all(listener, loop, conns);
@@ -230,7 +243,7 @@ int main() {
 
                 auto it = conns.find(ev.data.fd);
                 if (it == conns.end()) {
-                    continue;  // already cleaned up this round
+                    continue;
                 }
 
                 if (service(it->second, ev.events)) {
@@ -244,8 +257,44 @@ int main() {
             sweep_timeouts(loop, conns);
         }
 
+        std::cout << ("worker " + std::to_string(id) + " shutting down with " +
+                      std::to_string(conns.size()) + " connections\n");
+
     } catch (const std::exception& e) {
-        std::cerr << "fatal: " << e.what() << '\n';
-        return 1;
+        // A worker must not take down the process. Log and let the others run.
+        std::cerr << "worker " << id << " fatal: " << e.what() << '\n';
     }
+}
+
+}  // namespace
+
+int main() {
+    // Ignore SIGPIPE globally as a second layer of defence; MSG_NOSIGNAL
+    // already covers our sends, but any future write path is covered too.
+    std::signal(SIGPIPE, SIG_IGN);
+    std::signal(SIGINT, on_signal);
+    std::signal(SIGTERM, on_signal);
+
+    constexpr std::uint16_t kPort = 8080;
+
+    unsigned int hw = std::thread::hardware_concurrency();
+    std::size_t worker_count = (hw > 0) ? hw : 4;
+
+    std::cout << "HTTP server (epoll, " << worker_count
+              << " event loops) listening on http://127.0.0.1:" << kPort << '\n';
+    std::cout << "sizeof(Connection) = " << sizeof(Connection) << " bytes\n";
+
+    std::vector<std::thread> workers;
+    workers.reserve(worker_count);
+
+    for (std::size_t i = 0; i < worker_count; ++i) {
+        workers.emplace_back(run_worker, i, kPort);
+    }
+
+    for (std::thread& t : workers) {
+        t.join();
+    }
+
+    std::cout << "all workers stopped\n";
+    return 0;
 }

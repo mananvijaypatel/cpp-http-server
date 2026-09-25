@@ -56,7 +56,7 @@ class Socket {
 
 // Creates a TCP socket listening on localhost:port.
 // Throws std::system_error on failure
-Socket listen_tcp(std::uint16_t port, int backlog = 128);
+Socket listen_tcp(std::uint16_t port, int backlog = 128, bool reuse_port = false);
 
 // Sends every byte of data, looping over partial sends.
 // Throws std::system_error on failure

@@ -40,22 +40,24 @@ Socket& Socket::operator=(Socket&& other) noexcept {
     return *this;  // lets you chain: a = b = std::move(c)
 }
 
-Socket listen_tcp(std::uint16_t port, int backlog) {
-    // 1. Create a TCP socket and give it to an owner immediately.
-    //    If any later step throws, sock's destructor closes the fd for us.
+Socket listen_tcp(std::uint16_t port, int backlog, bool reuse_port) {
     Socket sock{::socket(AF_INET, SOCK_STREAM, 0)};
     if (!sock.valid()) {
         throw std::system_error(errno, std::generic_category(), "socket");
     }
 
-    // 2. Allow fast restarts even if old connections are in TIME_WAIT.
-    //    Must be set before bind().
     int yes = 1;
     if (::setsockopt(sock.fd(), SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) < 0) {
         throw std::system_error(errno, std::generic_category(), "setsockopt(SO_REUSEADDR)");
     }
 
-    // 3. Attach to 127.0.0.1:port
+    if (reuse_port) {
+        if (::setsockopt(sock.fd(), SOL_SOCKET, SO_REUSEPORT, &yes, sizeof(yes)) < 0) {
+            throw std::system_error(errno, std::generic_category(), "setsockopt(SO_REUSEPORT)");
+        }
+    }
+
+    // Bind and Listen is same.
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
     addr.sin_port = htons(port);
